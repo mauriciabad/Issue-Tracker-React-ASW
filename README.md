@@ -1,6 +1,6 @@
 # Issue Tracker - Frontend with React.js | ASW 2018-2019 Q2
 
-[Preview](https://aswit.herokuapp.com/)
+Try it here: [https://aswit.herokuapp.com/](https://aswit.herokuapp.com/)
 
 [React generated README.md](/README-REACT.md)
 
