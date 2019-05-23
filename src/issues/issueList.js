@@ -27,12 +27,19 @@ class IssueList extends Component {
         <thead>
           <tr>
             <th>Title</th>
-            <th>Id</th>
+            <th>T</th>
+            <th>P</th>
+            <th>Status</th>
+            <th>Votes</th>
+            <th>Watches</th>
+            <th>Assigned user</th>
+            <th>Created</th>
+            <th>Update</th>
           </tr>
         </thead>
         <tbody>
           {this.state.issues.map((item, index) => (
-            <IssueListRow id={item.id} title={item.title} />
+            <IssueListRow issue={item} />
           ))}
         </tbody>
       </table>
