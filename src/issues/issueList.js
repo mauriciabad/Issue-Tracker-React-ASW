@@ -22,11 +22,6 @@ class IssueList extends Component {
   };
 
   render() {
-    let issues = this.state.issues.reduce((total, issue) => total+`
-    <tr>
-      <th>${issue.title}</th>
-      <th>${issue.id}</th>
-    </tr>`, '');
     return (
       <table>
         <thead>
@@ -36,8 +31,9 @@ class IssueList extends Component {
           </tr>
         </thead>
         <tbody>
-          <IssueListRow id="000" title="AAA"/>
-          {issues}
+          {this.state.issues.map((item, index) => (
+            <IssueListRow id={item.id} title={item.title} />
+          ))}
         </tbody>
       </table>
     )
