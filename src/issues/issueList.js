@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-/*global fetch*/
-/*global data*/
-/*global response*/
-
+import IssueListRow from "./IssueListRow";
 
 class IssueList extends Component {
   constructor() {
@@ -39,6 +36,7 @@ class IssueList extends Component {
           </tr>
         </thead>
         <tbody>
+          <IssueListRow id="000" title="AAA"/>
           {issues}
         </tbody>
       </table>
