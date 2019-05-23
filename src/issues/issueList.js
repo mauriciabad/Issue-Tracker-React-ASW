@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import './App.css';
 /*global fetch*/
 /*global data*/
 /*global response*/
 
 
-class issues extends Component {
+class issueList extends Component {
     constructor() {
     	super()
     };
@@ -28,7 +27,7 @@ class issues extends Component {
     
 };
 
-export default issues;
+export default issueList;
  
 
 
