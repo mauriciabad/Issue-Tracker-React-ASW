@@ -6,6 +6,6 @@ import './index.css';
 import IssueLarge from './issues/IssueLarge';
 
 ReactDOM.render(
-  <IssueLarge />,
+  <IssueLarge id="1" />,
   document.getElementById('root')
 );

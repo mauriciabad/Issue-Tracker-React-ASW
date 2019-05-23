@@ -10,7 +10,7 @@ class IssueLarge extends Component {
   }
 
   componentDidMount(){
-    fetch('https://asw-issue.herokuapp.com/issues/1.json', {
+    fetch(`https://asw-issue.herokuapp.com/issues/${this.props.id}.json`, {
       method: 'GET',
       //body: JSON.stringify(dataToSend),
       headers: { 'Content-Type': 'application/json' }
