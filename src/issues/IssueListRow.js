@@ -6,7 +6,7 @@ class IssueListRow extends Component {
    render() {
     return (
       <tr>
-        <th>{this.props.issue.title}</th>
+        <th><a className="TableLink" href={`${process.env.PUBLIC_URL}/issues/${this.props.issue.id}`}>{this.props.issue.title}</a></th>
         <th><img className="TableImage" src={`img/${this.props.issue.kind}.svg`}></img></th>
         <th><img className="TableImage" src={`img/${this.props.issue.priority}.svg`}></img></th>
         <th><img className="TableImage" src={`img/${this.props.issue.status}.jpg`}></img></th>
