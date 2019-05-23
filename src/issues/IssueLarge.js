@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-/*global fetch*/
 
 class IssueLarge extends Component {
   constructor(props) {
