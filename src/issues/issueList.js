@@ -32,7 +32,7 @@ class IssueList extends Component {
             <th>Status</th>
             <th>Votes</th>
             <th>Watches</th>
-            <th>Assigned user</th>
+            {/* <th>Assigned user</th> */}
             <th>Created</th>
             <th>Update</th>
           </tr>

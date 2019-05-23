@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './IssueListRow.css';
+import moment from 'moment';
 
 class IssueListRow extends Component {
    render() {
@@ -11,8 +12,9 @@ class IssueListRow extends Component {
         <th><img className="TableImage" src={`img/${this.props.issue.status}.jpg`}></img></th>
         <th>{this.props.issue.votes}</th>
         <th>{this.props.issue.watches}</th>
-        <th>{this.props.issue.created_at}</th>
-        <th>{this.props.issue.updated_at}</th>
+        {/* <th>{this.props.issue.assigned_user}</th> */}
+        <th>{moment(new Date(this.props.issue.created_at)).fromNow()}</th>
+        <th>{moment(new Date(this.props.issue.updated_at)).fromNow()}</th>
       </tr>
     )
   };
