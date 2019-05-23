@@ -1,6 +1,10 @@
-.TableImage{
+.issue_table{
+
+}
+.issue_table__img{
   height: 1em;
 }
-.TableLink{
-  
+.issue_table__link{
+  color: inherit;
+  text-decoration: none;
 }

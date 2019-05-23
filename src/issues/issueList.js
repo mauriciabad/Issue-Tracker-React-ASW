@@ -23,7 +23,7 @@ class IssueList extends Component {
 
   render() {
     return (
-      <table>
+      <table className="Table">
         <thead>
           <tr>
             <th>Title</th>
