@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 // import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -62,7 +63,9 @@ class IssueList extends Component {
         <TableBody>
           {this.state.issues.map(row => (
             <TableRow key={row.name}>
-              <TableCell component="th" scope="row"><a className="issue_table__link" href={`/issues/${row.id}`}>{row.title}</a></TableCell>
+              <TableCell component="th" scope="row">
+                <Link to={`/issues/${row.id}`} className="issue_table__link">{row.title}</Link>
+                </TableCell>
               <TableCell align="center"><img className="issue_table__img" src={`/img/${row.kind}.svg`} alt={row.kind}></img></TableCell>
               <TableCell align="center"><img className="issue_table__img" src={`/img/${row.priority}.svg`} alt={row.priority}></img></TableCell>
               <TableCell align="center"><img className="issue_table__img" src={`/img/${row.status}.jpg`} alt={row.status}></img></TableCell>
