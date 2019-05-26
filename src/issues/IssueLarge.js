@@ -39,10 +39,6 @@ class IssueLarge extends Component {
      
         <Comentaris issue={this.props.match.params.id}/>
       </div>
-
-      
-
-      
     );
   }
 }

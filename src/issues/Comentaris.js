@@ -40,13 +40,8 @@ class Comentaris extends Component {
         <p>Comments ({this.state.comments.length})</p>
         <p className="comentaris">{commentsList}</p>
       </div>
-
-     
-      
     )
   }
-
-
 }
 
 export default Comentaris;
