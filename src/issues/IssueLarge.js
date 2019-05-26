@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import Comentaris from './Comentaris';
+
 class IssueLarge extends Component {
   constructor(props) {
     super(props);
@@ -34,7 +36,13 @@ class IssueLarge extends Component {
         <p><b>status</b>: {this.state.issue.status}</p>
         <p><b>votes</b>: {this.state.issue.votes}</p>
         <p><b>watches</b>: {this.state.issue.watches}</p>
+     
+        <Comentaris issue={this.props.match.params.id}/>
       </div>
+
+      
+
+      
     );
   }
 }
