@@ -12,6 +12,7 @@ class Comentaris extends Component {
     this.state = {
       comments: [],
       newComment: '',
+      editing: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -22,7 +23,7 @@ class Comentaris extends Component {
     this.setState({newComment: event.target.value});
   }
 
-  handleSubmit(event) {
+  handleSubmit() {
     
     //TODO: Posar current user
     let dataToSend = {
@@ -59,8 +60,28 @@ class Comentaris extends Component {
       console.log('Success:', response);
       alert('Comentari eliminat!',window.location.reload());
     });
+  }
 
-     
+  handleEdit(text){
+    this.setState({ editing: true });
+    this.setState({ newComment: text });
+  }
+
+  //TODO: Fer que s'actualitzi l'array de comments amb el result
+  // i treure el alert 
+  editSave(commentId){
+    let dataToSend = {
+      "text": this.state.newComment
+    }
+
+    fetch(`https://asw-issue.herokuapp.com/issues/${this.props.issue}/comments/${commentId}.json`, {
+      method: 'PUT',
+      body: JSON.stringify(dataToSend),
+      headers: { 'Content-Type': 'application/json' }
+    })
+    .then((response) => console.log(response.json()))
+    .catch(error => console.error('Error:', error))
+    .then( alert('Comentari modificat!',window.location.reload()));
   }
 
   componentDidMount() {
@@ -76,24 +97,42 @@ class Comentaris extends Component {
   }
 
   render() {
-    const commentsList = this.state.comments.map((comment , i) => {
+     
+    const CommentsList = this.state.comments.map((comment , i) => {
       return(
         <div className="comentari" key={i}>
           <b>{comment._links.creator.name}</b>
           <p>{comment.text}</p>
-          <p>{moment(new Date(comment.created_at)).fromNow()}</p>
-          <Button variant="contained" size="small" >Editar</Button>
+          <p>{moment(new Date(comment.updated_at)).fromNow()}</p>
+          <Button variant="contained" size="small" onClick={() => {this.handleEdit(comment.text)}}>Editar</Button>
           <Button style={{marginLeft:'1em'}} variant="contained" size="small" 
             onClick={() => {this.handleDelete(comment.id)}}>Eliminar</Button>
+          { this.state.editing ? 
+            <div>
+                <TextField className="full"
+                  label="Comment"
+                  margin="normal"
+                  variant="outlined"
+                  value={this.state.newComment}
+                  onChange={this.handleChange}>
+                </TextField>
+                <Button variant="contained" size="small" color="primary" 
+                    onClick={() => {this.editSave(comment.id)}}>Save</Button>
+                <Button size="small" style={{marginLeft:'1em'}}
+                    onClick={() => {this.setState({ editing: false })}}>Cancel</Button>
+                
+            </div> : null }
+            
         </div> 
       )
-      
     })
+
+
 
     return (
       <div className="border"> 
         <p>Comments ({this.state.comments.length})</p>
-        <div className="comentaris">{commentsList}</div>
+        <div className="comentaris">{CommentsList}</div>
         <form onSubmit={this.handleSubmit}>
           <TextField className="full"
             label="Comment"
