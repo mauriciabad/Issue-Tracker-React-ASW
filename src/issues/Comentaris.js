@@ -12,7 +12,7 @@ class Comentaris extends Component {
     this.state = {
       comments: [],
       newComment: '',
-      editing: false,
+      editing: 0,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -41,7 +41,7 @@ class Comentaris extends Component {
     .catch(error => console.error('Error:', error))
     .then(response => {
       console.log('Success:', response);
-      alert('Comentari creat!',window.location.reload());
+      window.location.reload();
     });
 
     event.preventDefault();
@@ -58,12 +58,12 @@ class Comentaris extends Component {
     .catch(error => console.error('Error:', error))
     .then(response => {
       console.log('Success:', response);
-      alert('Comentari eliminat!',window.location.reload());
+      window.location.reload();
     });
   }
 
-  handleEdit(text){
-    this.setState({ editing: true });
+  handleEdit(text, id){
+    this.setState({ editing: id });
     this.setState({ newComment: text });
   }
 
@@ -79,9 +79,11 @@ class Comentaris extends Component {
       body: JSON.stringify(dataToSend),
       headers: { 'Content-Type': 'application/json' }
     })
-    .then((response) => console.log(response.json()))
+    .then((response) => window.location.reload())
     .catch(error => console.error('Error:', error))
-    .then( alert('Comentari modificat!',window.location.reload()));
+    .then( );
+
+    this.setState({ editing: 0 })
   }
 
   componentDidMount() {
@@ -104,11 +106,11 @@ class Comentaris extends Component {
           <b>{comment._links.creator.name}</b>
           <p>{comment.text}</p>
           <p>{moment(new Date(comment.updated_at)).fromNow()}</p>
-          <Button variant="contained" size="small" onClick={() => {this.handleEdit(comment.text)}}>Editar</Button>
+          <Button variant="contained" size="small" onClick={() => {this.handleEdit(comment.text, comment.id)}}>Editar</Button>
           <Button style={{marginLeft:'1em'}} variant="contained" size="small" 
             onClick={() => {this.handleDelete(comment.id)}}>Eliminar</Button>
-          { this.state.editing ? 
-            <div>
+          { this.state.editing === comment.id ? 
+            <div >
                 <TextField className="full"
                   label="Comment"
                   margin="normal"
@@ -119,7 +121,7 @@ class Comentaris extends Component {
                 <Button variant="contained" size="small" color="primary" 
                     onClick={() => {this.editSave(comment.id)}}>Save</Button>
                 <Button size="small" style={{marginLeft:'1em'}}
-                    onClick={() => {this.setState({ editing: false })}}>Cancel</Button>
+                    onClick={() => {this.setState({ editing: 0 })}}>Cancel</Button>
                 
             </div> : null }
             
