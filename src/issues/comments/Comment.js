@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 
-import './Comentaris.css'
+import './Comment.css'
 import moment from 'moment';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
-class Comentaris extends Component {
+class Comment extends Component {
   constructor() {
     super();
     
@@ -102,7 +102,7 @@ class Comentaris extends Component {
      
     const CommentsList = this.state.comments.map((comment , i) => {
       return(
-        <div className="comentari" key={i}>
+        <div className="comment" key={i}>
           <b>{comment._links.creator.name}</b>
           <p>{comment.text}</p>
           <p>{moment(new Date(comment.updated_at)).fromNow()}</p>
@@ -134,7 +134,7 @@ class Comentaris extends Component {
     return (
       <div className="border"> 
         <p>Comments ({this.state.comments.length})</p>
-        <div className="comentaris">{CommentsList}</div>
+        <div className="comment">{CommentsList}</div>
         <form onSubmit={this.handleSubmit}>
           <TextField className="full"
             label="Comment"
@@ -150,4 +150,4 @@ class Comentaris extends Component {
   }
 }
 
-export default Comentaris;
+export default Comment;
