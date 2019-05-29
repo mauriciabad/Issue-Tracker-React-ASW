@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-
+import Paper from '@material-ui/core/Paper';
 import Comment from './comments/Comment';
+import Typography from '@material-ui/core/Typography';
+import './IssueLarge.css'
+import moment from 'moment';
 
 class IssueLarge extends Component {
   constructor(props) {
@@ -24,21 +27,20 @@ class IssueLarge extends Component {
 
   render() {
     return (
-      <div>
-        <h1>IssueLarge</h1>
-        <p><b>id</b>: {this.state.issue.id}</p>
-        <p><b>title</b>: {this.state.issue.title}</p>
-        <p><b>description</b>: {this.state.issue.description}</p>
-        <p><b>created_at</b>: {this.state.issue.created_at}</p>
-        <p><b>updated_at</b>: {this.state.issue.updated_at}</p>
-        <p><b>kind</b>: {this.state.issue.kind}</p>
-        <p><b>priority</b>: {this.state.issue.priority}</p>
-        <p><b>status</b>: {this.state.issue.status}</p>
-        <p><b>votes</b>: {this.state.issue.votes}</p>
-        <p><b>watches</b>: {this.state.issue.watches}</p>
+      <Paper className="issue_paper">
+        <Typography variant="h2" component="h1">{this.state.issue.title}</Typography>
+        <Typography component="p"><b>id</b>: {this.state.issue.id}</Typography>
+        <Typography component="p"><b>description</b>: {this.state.issue.description}</Typography>
+        <Typography component="p"><b>created_at</b>: {moment(new Date(this.state.issue.created_at)).fromNow()}</Typography>
+        <Typography component="p"><b>updated_at</b>: {moment(new Date(this.state.issue.updated_at)).fromNow()}</Typography>
+        <Typography component="p"><b>kind</b>: {this.state.issue.kind}</Typography>
+        <Typography component="p"><b>priority</b>: {this.state.issue.priority}</Typography>
+        <Typography component="p"><b>status</b>: {this.state.issue.status}</Typography>
+        <Typography component="p"><b>votes</b>: {this.state.issue.votes}</Typography>
+        <Typography component="p"><b>watches</b>: {this.state.issue.watches}</Typography>
      
         <Comment issue={this.props.match.params.id}/>
-      </div>
+      </Paper>
     );
   }
 }

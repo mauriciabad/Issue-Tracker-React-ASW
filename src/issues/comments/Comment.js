@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import Typography from '@material-ui/core/Typography';
 import './Comment.css'
 import moment from 'moment';
 import TextField from '@material-ui/core/TextField';
@@ -132,13 +132,13 @@ class Comment extends Component {
 
 
     return (
-      <div className="border"> 
-        <p>Comments ({this.state.comments.length})</p>
+      <div className="border">
+      <Typography component="h5" variant="h5">Comments ({this.state.comments.length})</Typography>
         <div className="comment">{CommentsList}</div>
         <form onSubmit={this.handleSubmit}>
           <TextField className="full"
             label="Comment"
-            placeholder="What would you like to say?"
+            placeholder=""
             margin="normal"
             variant="outlined"
             value={this.state.newComment}
