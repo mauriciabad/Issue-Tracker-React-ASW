@@ -28,7 +28,7 @@ npm start
 
 ## Authors
 
-- Maurici Abad
+- Maurici Abad: Index Issues, View Issues
 - Sandra Flores
-- Xavier Font
-- Raimon Mercé
+- Xavier Font: Comments, edit, create, view, delete, etc
+- Raimon Mercé: Millorar problemes de la API no solucionats
