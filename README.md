@@ -20,15 +20,6 @@ sudo npm i
 npm start
 ```
 
-## Generate component
-
-Use [generate-react-component
-](https://www.npmjs.com/package/generate-react-component)
-
-````bash
-rcmp <ComponentName> -css
-```
-
 ## Tutorials followed
 
 [Configure ESLint](https://medium.com/@RossWhitehouse/setting-up-eslint-in-react-c20015ef35f7)
