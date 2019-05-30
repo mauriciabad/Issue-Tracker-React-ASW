@@ -19,6 +19,7 @@ ReactDOM.render(
           <Route exact path="/issues" component={IssueList} />
           <Route path="/issues/new" component={IssueNew} />
           <Route path="/issues/:id" component={IssueLarge} />
+          {/* <Route path="/issues/:id/edit" component={IssueNew} /> */}
           
           <Route render={() => <Redirect to="/issues" />} />
         </Switch>

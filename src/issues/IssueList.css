@@ -5,3 +5,20 @@
   color: inherit;
   text-decoration: none;
 }
+.smallCol{
+  /* width: 1em; */
+  padding: 8px !important;
+  white-space: nowrap;
+}
+
+@media (max-width: 530px) {
+  .hide {
+    display: none !important;
+  }
+}
+
+@media (max-width: 350px) {
+  .hide2 {
+    display: none !important;
+  }
+}

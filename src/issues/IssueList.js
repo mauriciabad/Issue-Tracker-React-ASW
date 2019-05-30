@@ -41,31 +41,31 @@ class IssueList extends Component {
           <Table>
             <TableHead>
               <TableRow>
-                <TableCell>Title</TableCell>
-                <TableCell align="center">T</TableCell>
-                <TableCell align="center">P</TableCell>
-                <TableCell align="center">Status</TableCell>
-                <TableCell align="right">Votes</TableCell>
-                <TableCell align="right">Watches</TableCell>
+                <TableCell style={{paddindRight: '4px'}}>Title</TableCell>
+                <TableCell align="center" className="smallCol">T</TableCell>
+                <TableCell align="center" className="smallCol">P</TableCell>
+                <TableCell align="center" className="smallCol">Status</TableCell>
+                <TableCell align="right" className="smallCol hide2">Votes</TableCell>
+                <TableCell align="right" className="smallCol hide2">Watches</TableCell>
                 {/* <TableCell align="right">Assigned uTableCellr</th> */}
-                <TableCell align="right">Created</TableCell>
-                <TableCell align="right">Update</TableCell>
+                <TableCell align="right" className="smallCol hide">Created</TableCell>
+                <TableCell align="right" className="hide" style={{paddindleft: '4px'}}>Update</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {this.state.issues.map(row => (
                 <TableRow key={row.id}>
-                  <TableCell component="th" scope="row">
+                  <TableCell component="th" scope="row" style={{paddindRight: '4px'}}>
                     <Link to={`/issues/${row.id}`} className="issue_table__link">{row.title}</Link>
                   </TableCell>
-                  <TableCell align="center"><img className="issue_table__img" src={`/img/${row.kind}.svg`} alt={row.kind}></img></TableCell>
-                  <TableCell align="center"><img className="issue_table__img" src={`/img/${row.priority}.svg`} alt={row.priority}></img></TableCell>
-                  <TableCell align="center"><img className="issue_table__img" src={`/img/${row.status}.jpg`} alt={row.status}></img></TableCell>
-                  <TableCell align="right">{row.votes}</TableCell>
-                  <TableCell align="right">{row.watches}</TableCell>
+                  <TableCell align="center" className="smallCol"><img className="issue_table__img" src={`/img/${row.kind}.svg`} alt={row.kind}></img></TableCell>
+                  <TableCell align="center" className="smallCol"><img className="issue_table__img" src={`/img/${row.priority}.svg`} alt={row.priority}></img></TableCell>
+                  <TableCell align="center" className="smallCol"><img className="issue_table__img" src={`/img/${row.status}.jpg`} alt={row.status}></img></TableCell>
+                  <TableCell align="right" className="smallCol hide2">{row.votes}</TableCell>
+                  <TableCell align="right" className="smallCol hide2">{row.watches}</TableCell>
                   {/* <TableCell align="right">{row.assigned_user}</TableCell> */}
-                  <TableCell align="right">{moment(new Date(row.created_at)).fromNow()}</TableCell>
-                  <TableCell align="right">{moment(new Date(row.updated_at)).fromNow()}</TableCell>
+                  <TableCell align="right" className="smallCol hide">{moment(new Date(row.created_at)).fromNow()}</TableCell>
+                  <TableCell align="right" className="hide" style={{paddindleft: '4px'}}>{moment(new Date(row.updated_at)).fromNow()}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
