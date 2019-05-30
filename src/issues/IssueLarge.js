@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Paper from '@material-ui/core/Paper';
 import Comment from './comments/Comment';
 import Typography from '@material-ui/core/Typography';
-import './IssueLarge.css'
+import './Issue.css'
 import moment from 'moment';
 
 class IssueLarge extends Component {
@@ -28,7 +28,7 @@ class IssueLarge extends Component {
   render() {
     return (
       <Paper className="issue_paper">
-        <Typography variant="h2" component="h1">{this.state.issue.title}</Typography>
+        <Typography variant="h3" component="h3">{this.state.issue.title}</Typography>
         <Typography component="p"><b>id</b>: {this.state.issue.id}</Typography>
         <Typography component="p"><b>description</b>: {this.state.issue.description}</Typography>
         <Typography component="p"><b>created_at</b>: {moment(new Date(this.state.issue.created_at)).fromNow()}</Typography>

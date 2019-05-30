@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import IssueList from './issues/IssueList';
+import IssueNew from './issues/IssueNew';
 // import IssueListEnhansed from './issues/IssueListEnhansed';
 import './index.css';
 import IssueLarge from './issues/IssueLarge';
@@ -16,6 +17,7 @@ ReactDOM.render(
         <Switch>
           {/* <Route exact path="/issues" component={IssueListEnhansed} /> */}
           <Route exact path="/issues" component={IssueList} />
+          <Route path="/issues/new" component={IssueNew} />
           <Route path="/issues/:id" component={IssueLarge} />
           
           <Route render={() => <Redirect to="/issues" />} />

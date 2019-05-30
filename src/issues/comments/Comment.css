@@ -1,6 +1,9 @@
 .comments{
     margin-left: 2em;
 }
+.comment{
+    margin: 1em 0;
+}
 
 .border{
     padding-top: 16px;

@@ -29,7 +29,7 @@ class Comment extends Component {
     let dataToSend = {
       "text": this.state.newComment,
       "issue_id": this.props.issue,
-      "user_id": "2"
+      "user_id": "1"
     }
 
     fetch(`https://asw-issue.herokuapp.com/issues/${this.props.issue}/comments.json`, {
@@ -114,7 +114,6 @@ class Comment extends Component {
                 <TextField className="full"
                   label="Comment"
                   margin="normal"
-                  variant="outlined"
                   value={this.state.newComment}
                   onChange={this.handleChange}>
                 </TextField>
@@ -140,7 +139,6 @@ class Comment extends Component {
             label="Comment"
             placeholder=""
             margin="normal"
-            variant="outlined"
             value={this.state.newComment}
             onChange={this.handleChange}
           ></TextField> 
