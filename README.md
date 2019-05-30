@@ -6,7 +6,7 @@ Rails: [https://asw-issue.herokuapp.com/](https://asw-issue.herokuapp.com/)
 
 API: [https://asw-issue.herokuapp.com/api-docs](https://asw-issue.herokuapp.com/api-docs)
 
-[React generated README.md](/README-REACT.md)
+[Document for the delivery](docs/tercer_lliurament.md)
 
 ## Setup
 
